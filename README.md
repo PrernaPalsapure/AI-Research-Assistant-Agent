@@ -1,85 +1,140 @@
 # AI Research Assistant Agent 🤖
 
-An AI-powered research assistant built with Python, Gemini, LangChain, and Streamlit. It answers general questions, performs mathematical calculations, and searches the web for current information.
+An AI-powered research assistant built with Python, LangChain, Google Gemini, and Streamlit. The agent can answer questions, perform calculations, and search the web using tools based on the user's request.
 
-## Features
+## ✨ Features
 
-- **AI-powered answers:** Uses Google's Gemini model to answer general questions.
-- **Web search:** Retrieves web search results using DDGS.
-- **Calculator:** Performs mathematical calculations using SimpleEval.
-- **Conversation memory:** Maintains chat history during the current Streamlit session.
-- **Interactive chat interface:** Built with Streamlit.
-- **Clear Chat:** Allows users to reset the conversation.
+- **AI-powered answers:** Uses Google Gemini to understand questions and generate responses.
+- **Calculator tool:** Performs mathematical calculations.
+- **Web search:** Uses DuckDuckGo search to retrieve relevant online information.
+- **Interactive chat interface:** Built with Streamlit for a simple, user-friendly experience.
+- **Conversation history:** Maintains chat history during the session.
+- **Clear Chat:** Allows users to reset the current conversation.
+- **Modular code:** Separates the interface, agent logic, and tools into individual Python files.
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 - Python
-- Google Gemini
+- Google Gemini API
 - LangChain
 - Streamlit
-- DDGS
-- SimpleEval
+- DuckDuckGo Search
 - python-dotenv
 
-## Project Structure
+## 🏗️ Project Architecture
 
 ```text
-Agents_MYProject/
-├── app.py
-├── agent.py
-├── tools.py
-├── requirements.txt
-├── .gitignore
-└── README.md
+AI-Research-Assistant-Agent/
+│
+├── app.py              # Streamlit chat interface
+├── agent.py            # Gemini agent and tool integration
+├── tools.py            # Calculator and web search tools
+├── requirements.txt    # Project dependencies
+├── .gitignore          # Excluded files and folders
+├── .env                # API key (not committed)
+└── README.md           # Project documentation
 ```
 
-## Setup and Installation
+### How It Works
 
-1. Clone this repository:
+```mermaid
+flowchart TD
+    A[User asks a question] --> B[Streamlit Interface]
+    B --> C[LangChain Agent]
+    C --> D[Google Gemini]
+    D --> E{Need a tool?}
+    E -->|Calculation| F[Calculator Tool]
+    E -->|Online information| G[DuckDuckGo Search]
+    E -->|No tool required| H[Generate Answer]
+    F --> I[Agent processes result]
+    G --> I
+    I --> H
+    H --> J[Display response]
+```
 
-   ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
-   cd Agents_MYProject
-   ```
+## ⚙️ Installation and Setup
 
-2. Create and activate a virtual environment:
+### 1. Clone the repository
 
-   ```bash
-   python -m venv myenv
-   ```
+```bash
+git clone https://github.com/PrernaPalsapure/AI-Research-Assistant-Agent.git
+cd AI-Research-Assistant-Agent
+```
 
-   Windows PowerShell:
+### 2. Create a virtual environment
 
-   ```powershell
-   .\myenv\Scripts\Activate.ps1
-   ```
+```bash
+python -m venv myenv
+```
 
-3. Install the dependencies:
+Activate it on Windows PowerShell:
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+```powershell
+.\myenv\Scripts\Activate.ps1
+```
 
-4. Create a `.env` file in the project directory and add your Gemini API key:
+### 3. Install dependencies
 
-   ```text
-   GOOGLE_API_KEY=your_api_key_here
-   ```
+```bash
+python -m pip install -r requirements.txt
+```
 
-   Replace `your_api_key_here` with your own API key. Never share or commit your actual API key.
+### 4. Configure your API key
 
-5. Run the application:
+Create a `.env` file in the project root and add your Google Gemini API key:
 
-   ```bash
-   streamlit run app.py
-   ```
+```env
+GOOGLE_API_KEY=your_gemini_api_key_here
+```
 
-## Example Questions
+Get an API key through [Google AI Studio](https://aistudio.google.com/).
 
-- What is machine learning?
-- What is 125 * 24?
-- What are the latest developments in Generative AI?
+**Security:** Never commit your `.env` file or expose your API key publicly.
 
-## Learning Outcomes
+### 5. Run the application
 
-This project demonstrates practical experience with LLM integration, tool calling, agent creation, web search, conversation history, and building a user interface for an AI application.
+```bash
+streamlit run app.py
+```
+
+Open the local URL displayed in your terminal to start chatting with the assistant.
+
+## 💬 Example Questions
+
+Try asking the assistant:
+
+- What is artificial intelligence, and how does it differ from machine learning?
+- Calculate the compound interest on ₹10,000 at 8% annually for 3 years.
+- Search the web for recent developments in generative AI.
+- Explain how a large language model works in simple terms.
+
+## 🎯 Learning Outcomes
+
+This project provides practical experience with:
+
+- Building an LLM-powered application.
+- Integrating tools into an AI agent.
+- Using LangChain with a Google Gemini model.
+- Creating an interactive application with Streamlit.
+- Managing conversation state and environment variables.
+- Organizing Python projects into reusable modules.
+
+## 🔮 Future Improvements
+
+- Add document-based question answering using RAG.
+- Add source links and improved search-result summaries.
+- Introduce more tools for research and data analysis.
+- Deploy the application for public access.
+- Add automated tests and improved error handling.
+
+## 👩‍💻 Author
+
+**Prerna Anant Palsapure**
+
+AI/ML Engineer | Python | Machine Learning | Generative AI | LLMs
+
+[GitHub Profile](https://github.com/PrernaPalsapure)
+
+---
+
+*Built as a hands-on project to explore AI agents, LLMs, and tool integration.*
